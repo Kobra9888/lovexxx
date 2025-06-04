@@ -1,0 +1,4 @@
+# Minimal _config.yml for GitHub Pages
+# title: My Meri_Cutte Page
+# description: A personal website for Meri_Cutte
+# show_downloads: false
