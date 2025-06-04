@@ -1,0 +1,477 @@
+/* General & Body Styles */
+:root {
+    --primary-pink: #E03A8C;
+    --light-pink: #FF5C9D;
+    --dark-bg: #0d0d0d;
+    --medium-bg: #1a1a1a;
+    --text-color: #f0f0f0;
+    --light-text: #ccc;
+    --dark-text: #888;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif; /* Изменен шрифт */
+    color: var(--text-color);
+    background-color: var(--dark-bg);
+    overflow-x: hidden;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Для плавной прокрутки */
+}
+
+/* Container for sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary-pink), var(--light-pink)); /* Градиент */
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(224, 58, 140, 0.4); /* Тень от кнопки */
+    white-space: nowrap;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(224, 58, 140, 0.6);
+    background: linear-gradient(45deg, var(--light-pink), var(--primary-pink)); /* Измененный градиент при наведении */
+}
+
+/* Outlined button for variety */
+.outlined-button {
+    background: transparent;
+    border: 2px solid var(--primary-pink);
+    color: var(--primary-pink);
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.outlined-button:hover {
+    background: linear-gradient(45deg, var(--primary-pink), var(--light-pink));
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(224, 58, 140, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* Sections */
+.section {
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Для параллакса */
+}
+
+.section:nth-of-type(even) { /* Альтернативный фон для четных секций */
+    background-color: var(--medium-bg);
+}
+
+.section-title {
+    font-family: 'Cinzel', serif; /* Изменен шрифт заголовка */
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: var(--primary-pink);
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--light-pink);
+    border-radius: 2px;
+}
+
+.section-text {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--light-text);
+}
+
+/* Hero Section (Header) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(1.5) contrast(1.3); /* Сильнее затемнение и контраст */
+    animation: fadeInVideo 2s ease-out forwards;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 1000px;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Cinzel', serif; /* Изменен шрифт */
+    font-size: 4.5em; /* Увеличен размер */
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    animation: slideInUp 1.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.5s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff; /* Яркий белый */
+}
+
+.hero-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8em; /* Увеличен размер */
+    font-weight: 300; /* Более тонкий шрифт */
+    margin-bottom: 40px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    animation: slideInUp 1.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.8s;
+    color: var(--light-text);
+}
+
+.hero-content .cta-button {
+    animation: scaleIn 1.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1.2s;
+}
+
+/* Gallery Section */
+.gallery-section {
+    background-color: var(--dark-bg);
+    background-attachment: fixed; /* Для параллакс-эффекта */
+    background-position: center bottom; /* Начальная позиция */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 120px 0; /* Увеличен отступ для параллакса */
+}
+
+.gallery-section::before { /* Полупрозрачный оверлей над фоном */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Темный полупрозрачный фон */
+    z-index: 1;
+}
+
+.gallery-section .container {
+    position: relative; /* Чтобы контент был поверх оверлея */
+    z-index: 2;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Увеличен зазор */
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px; /* Более округлые углы */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6); /* Более выраженная тень */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease; /* Более плавная анимация */
+    border: 1px solid rgba(255,255,255,0.05); /* Легкая рамка */
+}
+
+.grid-item:hover {
+    transform: translateY(-10px) scale(1.03); /* Усиленный эффект при наведении */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 400px; /* Увеличена высота */
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.7) grayscale(0.2); /* Немного серого и затемнения */
+    transition: filter 0.4s ease;
+}
+
+.grid-item:hover img {
+    filter: brightness(1) grayscale(0); /* Полный цвет при наведении */
+}
+
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%); /* Более темный градиент */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.grid-item:hover .item-overlay {
+    opacity: 1;
+}
+
+.item-overlay span {
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.grid-item:hover .item-overlay span {
+    transform: translateY(0);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: var(--medium-bg);
+    padding: 100px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.testimonial-card {
+    background-color: #222; /* Темнее фон карточки */
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.08); /* Легкая рамка */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+    background-color: #282828; /* Чуть светлее при наведении */
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--light-text);
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--primary-pink);
+    font-size: 0.9em;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    padding: 60px 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--dark-text);
+    border-top: 1px solid #333;
+}
+
+.footer-cta {
+    margin-bottom: 30px;
+}
+
+.footer-disclaimer {
+    margin: 15px 0 10px;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85em;
+}
+
+.footer-links a {
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0 10px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-pink);
+}
+
+.footer-links span {
+    color: var(--dark-text);
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInVideo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Reveal Animation (для элементов, которые появляются при прокрутке) */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5em;
+    }
+    .hero-subtitle {
+        font-size: 1.5em;
+    }
+    .section-title {
+        font-size: 2.5em;
+    }
+    .section {
+        padding: 80px 0;
+    }
+    .gallery-section {
+        padding: 100px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8em;
+    }
+    .hero-subtitle {
+        font-size: 1.3em;
+    }
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+    .section {
+        padding: 60px 0;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .section-text {
+        font-size: 1em;
+    }
+    .image-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .grid-item img {
+        height: 300px;
+    }
+    .testimonial-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+    .section-title {
+        font-size: 1.7em;
+    }
+    .gallery-section {
+        padding: 80px 0;
+    }
+}

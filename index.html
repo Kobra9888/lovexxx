@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meri_Cutte - Discover Exclusivity</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="hero-section">
+        <video class="hero-video-bg" autoplay loop muted playsinline>
+            <source src="video/hero_video.mp4" type="video/mp4">
+            <source src="video/hero_video.webm" type="video/webm">
+            <source src="video/hero_video.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Step Into My World: Meri_Cutte Awaits Your Private Connection.</h1>
+            <p class="hero-subtitle">Experience Unfiltered Sensuality & Exclusive Moments – Only on Stripchat.</p>
+            <a href="https://stripchat.com/Meri_Cutte/follow-me" class="cta-button">Watch Live Now!</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="section about-section">
+            <div class="container">
+                <h2 class="section-title">Beyond the Screen: Your Live Experience with Meri_Cutte</h2>
+                <p class="section-text">Discover a realm where every moment is authentic and every interaction is personal. Meri invites you to an exclusive journey of real-time connection, spontaneous moments, and content crafted just for you. Forget the ordinary – embrace the extraordinary.</p>
+                <p class="section-text">Her live shows are a unique blend of artistry and intimacy, designed to captivate and engage. Get ready for an experience that transcends the screen and brings you closer than ever before.</p>
+            </div>
+        </section>
+
+        <section class="section gallery-section parallax-bg" style="background-image: url('images/gallery_bg.jpg');">
+            <div class="container">
+                <h2 class="section-title">A Glimpse of What Awaits</h2>
+                <div class="image-grid">
+                    <div class="grid-item reveal-item">
+                        <img src="images/1.jpg" alt="Exclusive Glimpse">
+                        <div class="item-overlay"><span>Exclusive Glimpse</span></div>
+                    </div>
+                    <div class="grid-item reveal-item">
+                        <img src="images/2.jpg" alt="Intimate Moments">
+                        <div class="item-overlay"><span>Intimate Moments</span></div>
+                    </div>
+                    <div class="grid-item reveal-item">
+                        <img src="images/3.jpg" alt="Unfiltered Access">
+                        <div class="item-overlay"><span>Unfiltered Access</span></div>
+                    </div>
+                    <div class="grid-item reveal-item">
+                        <img src="images/4.jpg" alt="Sensual Artistry">
+                        <div class="item-overlay"><span>Sensual Artistry</span></div>
+                    </div>
+                </div>
+                <a href="https://stripchat.com/Meri_Cutte/follow-me" class="cta-button outlined-button">Unlock Live Access Now!</a>
+            </div>
+        </section>
+
+        <section class="section testimonials-section">
+            <div class="container">
+                <h2 class="section-title">Voices of Admiration</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal-item">
+                        <p class="testimonial-text">"Her live shows are incredible, truly interactive! Never seen anything like it, she's amazing live!"</p>
+                        <span class="testimonial-author">- A Loyal Fan</span>
+                    </div>
+                    <div class="testimonial-card reveal-item">
+                        <p class="testimonial-text">"The most intimate connection I've ever experienced online. Every moment is captivating and unique."</p>
+                        <span class="testimonial-author">- Dedicated Follower</span>
+                    </div>
+                    <div class="testimonial-card reveal-item">
+                        <p class="testimonial-text">"Absolutely stunning and so engaging. This is the future of exclusive content. Highly recommend!"</p>
+                        <span class="testimonial-author">- New Patron</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="https://stripchat.com/Meri_Cutte/follow-me" class="cta-button footer-cta">Don't Miss Out: Join Meri_Cutte's Live Show Today!</a>
+        <p class="footer-disclaimer">18+ Disclaimer. All content is for mature audiences only.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript для эффекта появления элементов при прокрутке (Reveal Animation)
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealItems = document.querySelectorAll('.reveal-item');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Элемент будет показан, когда 10% его будет видно
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Остановить наблюдение после появления
+                    }
+                });
+            }, observerOptions);
+
+            revealItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Параллакс эффект для фона галереи
+            const parallaxBg = document.querySelector('.parallax-bg');
+            if (parallaxBg) {
+                window.addEventListener('scroll', () => {
+                    const scrollPosition = window.pageYOffset;
+                    parallaxBg.style.backgroundPositionY = -scrollPosition * 0.2 + 'px'; // Настройте скорость параллакса
+                });
+            }
+        });
+    </script>
+</body>
+</html>
